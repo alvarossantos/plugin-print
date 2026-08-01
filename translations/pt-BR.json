@@ -1,0 +1,63 @@
+{
+  "widget": {
+    "tooltip": "Print Toolkit - Abrir ferramentas de captura"
+  },
+  "panel": {
+    "title": "Print Toolkit",
+    "subtitle": "Captura de tela, OCR, pesquisa por imagem e gravação",
+    "close": "Fechar",
+    "screenshot_region": "Print de Região",
+    "screenshot_fullscreen": "Print de Tela Cheia",
+    "ocr": "OCR da Última Captura",
+    "reverse_search": "Pesquisa Reversa de Imagem",
+    "record_start": "Iniciar Gravação",
+    "record_stop": "Parar Gravação",
+    "record_hint": "Gravação delegada ao plugin oficial screen_recorder (gpu-screen-recorder)"
+  },
+  "capture": {
+    "fullscreen": "Tela cheia",
+    "region": "Região",
+    "ocr": "OCR",
+    "reverse_search": "Pesquisa por Imagem",
+    "record_start": "Gravar",
+    "record_stop": "Parar",
+    "hint": "Print novamente ou Esc para fechar"
+  },
+  "settings": {
+    "screenshot_dir": {
+      "label": "Diretório de Capturas",
+      "description": "Onde as capturas são salvas (usado pelos scripts de OCR e pesquisa reversa)"
+    },
+    "ocr_language": {
+      "label": "Idioma do OCR",
+      "description": "Código(s) de idioma do tesseract, ex.: por+eng"
+    },
+    "search_engine": {
+      "label": "Motor de Busca",
+      "description": "Motor de pesquisa reversa por imagem",
+      "google": "Google Lens",
+      "bing": "Bing Visual Search",
+      "yandex": "Yandex Images"
+    },
+    "record_source": {
+      "label": "Fonte de Gravação",
+      "description": "Qual saída gravar: o monitor focado (sem seletor) ou o portal de compartilhamento de tela",
+      "focused": "Monitor focado",
+      "portal": "Portal de compartilhamento (seletor)"
+    }
+  },
+  "notification": {
+    "ocr": {
+      "title": "Print Toolkit - OCR",
+      "failed": "OCR falhou - verifique a instalação do tesseract e o diretório de capturas"
+    },
+    "search": {
+      "title": "Print Toolkit - Pesquisa de Imagem",
+      "failed": "Pesquisa reversa falhou - verifique o curl e a rede"
+    },
+    "record": {
+      "title": "Print Toolkit - Gravação",
+      "failed": "Não foi possível alternar a gravação - o noctalia/screen_recorder está habilitado?"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "widget": {
+    "tooltip": "Print Toolkit - Open capture tools"
+  },
+  "panel": {
+    "title": "Print Toolkit",
+    "subtitle": "Screenshot, OCR, image search and recording",
+    "close": "Close",
+    "screenshot_region": "Screenshot Region",
+    "screenshot_fullscreen": "Screenshot Fullscreen",
+    "ocr": "OCR Last Capture",
+    "reverse_search": "Reverse Image Search",
+    "record_start": "Start Recording",
+    "record_stop": "Stop Recording",
+    "record_hint": "Recording is delegated to the official screen_recorder plugin (gpu-screen-recorder)"
+  },
+  "capture": {
+    "fullscreen": "Fullscreen",
+    "region": "Region",
+    "ocr": "OCR",
+    "reverse_search": "Reverse Image Search",
+    "record_start": "Record",
+    "record_stop": "Stop",
+    "hint": "Press Print again or Esc to close"
+  },
+  "settings": {
+    "screenshot_dir": {
+      "label": "Screenshot Directory",
+      "description": "Where screenshots are saved (used by the OCR and reverse-search scripts)"
+    },
+    "ocr_language": {
+      "label": "OCR Language",
+      "description": "tesseract language code(s), e.g. por+eng"
+    },
+    "search_engine": {
+      "label": "Search Engine",
+      "description": "Reverse image search engine",
+      "google": "Google Lens",
+      "bing": "Bing Visual Search",
+      "yandex": "Yandex Images"
+    },
+    "record_source": {
+      "label": "Recording Source",
+      "description": "Which output to record: the focused monitor (no picker) or the system screen-share portal",
+      "focused": "Focused monitor",
+      "portal": "Screen-share portal (picker)"
+    }
+  },
+  "notification": {
+    "ocr": {
+      "title": "Print Toolkit - OCR",
+      "failed": "OCR failed - check the tesseract installation and the screenshot directory"
+    },
+    "search": {
+      "title": "Print Toolkit - Image Search",
+      "failed": "Reverse image search failed - check curl and network"
+    },
+    "record": {
+      "title": "Print Toolkit - Recording",
+      "failed": "Could not toggle recording - is noctalia/screen_recorder enabled?"
+    }
+  }
+}
