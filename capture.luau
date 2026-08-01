@@ -143,7 +143,22 @@ function onFullscreen()
   state.active_mode = "fullscreen"
   render()
   panel.close()
-  noctalia.runAsync("sleep 0.35 && noctalia msg screenshot-fullscreen")
+  -- Captura tela cheia, depois copia para clipboard e reabre painel
+  noctalia.runAsync("sleep 0.35 && noctalia msg screenshot-fullscreen", function()
+    -- Aguarda um pouco para o arquivo ser salvo, depois copia o mais recente
+    noctalia.runAsync("sleep 0.5 && " .. string.format([[
+      latest=$(find %s -maxdepth 1 -type f -name '*.png' -printf '%%T@ %%p\n' 2>/dev/null | sort -rn | head -n1 | cut -d' ' -f2-)
+      if [ -n "$latest" ] && [ -f "$latest" ]; then
+        wl-copy --type image/png < "$latest"
+      fi
+    ]], shq(noctalia.expandPath(noctalia.getConfig("screenshot_dir") or "~/Pictures"))))
+    -- Notificação de sucesso
+    noctalia.runAsync("sleep 0.5 && " .. string.format("noctalia msg notification-show '%s' -- '%s'",
+      shq(tr("notification.fullscreen.title")),
+      shq(tr("notification.fullscreen.saved"))))
+    -- Reabre painel
+    noctalia.runAsync("sleep 0.2 && noctalia msg panel-toggle alvaro/print-toolkit:capture")
+  end)
 end
 
 function onRegion()
@@ -156,7 +171,10 @@ function onRegion()
         shq(noctalia.expandPath(noctalia.getConfig("screenshot_dir") or "~/Pictures")),
         os.date("%Y%m%d_%H%M%S"))
       noctalia.runAsync(string.format("cp %s %s", shq(file), dest))
+      -- Copia a imagem para o clipboard
+      noctalia.runAsync(string.format("wl-copy --type image/png < %s", shq(file)))
       noctalia.runAsync("rm -f " .. shq(file))
+      -- Notificação de sucesso
       noctalia.notify(tr("notification.region.title"), tr("notification.region.saved"))
     end
     -- Reabre painel para permitir trocar de opção
@@ -176,6 +194,7 @@ function onOCR()
       shq(noctalia.getConfig("ocr_language") or "por+eng"))
     noctalia.runAsync(env .. " " .. script, function(r)
       noctalia.runAsync("rm -f " .. shq(file))
+      -- O script já copia o texto para clipboard e notifica
       -- Reabre painel para permitir trocar de opção
       noctalia.runAsync("sleep 0.2 && noctalia msg panel-toggle alvaro/print-toolkit:capture")
     end)
@@ -194,6 +213,8 @@ function onReverseSearch()
       shq(noctalia.getConfig("search_engine") or "google"))
     noctalia.runAsync(env .. " " .. script, function(r)
       noctalia.runAsync("rm -f " .. shq(file))
+      -- Notificação de sucesso
+      noctalia.notify(tr("notification.search.title"), tr("notification.search.opened"))
       -- Reabre painel para permitir trocar de opção
       noctalia.runAsync("sleep 0.2 && noctalia msg panel-toggle alvaro/print-toolkit:capture")
     end)
@@ -204,6 +225,7 @@ function onToggleRecord()
   state.active_mode = "record"
   render()
   local source = noctalia.getConfig("record_source") or "focused"
+  local was_recording = state.recording
   panel.close()
   noctalia.runAsync(
     string.format("sleep 0.35 && noctalia msg plugin noctalia/screen_recorder:service all toggle %s", shq(source)),
@@ -211,6 +233,13 @@ function onToggleRecord()
       refreshRecordingState()
       if tonumber(result.exitCode) ~= 0 then
         noctalia.notifyError(tr("notification.record.title"), tr("notification.record.failed"))
+      else
+        -- Notificação baseada no estado anterior
+        if was_recording then
+          noctalia.notify(tr("notification.record.title"), tr("notification.record.stopped"))
+        else
+          noctalia.notify(tr("notification.record.title"), tr("notification.record.started"))
+        end
       end
     end
   )

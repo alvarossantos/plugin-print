@@ -47,16 +47,28 @@
     }
   },
   "notification": {
+    "region": {
+      "title": "Print Toolkit - Região",
+      "saved": "Região salva e copiada para a área de transferência"
+    },
+    "fullscreen": {
+      "title": "Print Toolkit - Tela Cheia",
+      "saved": "Tela cheia salva e copiada para a área de transferência"
+    },
     "ocr": {
       "title": "Print Toolkit - OCR",
+      "copied": "Texto copiado para a área de transferência",
       "failed": "OCR falhou - verifique a instalação do tesseract e o diretório de capturas"
     },
     "search": {
       "title": "Print Toolkit - Pesquisa de Imagem",
+      "opened": "Pesquisa reversa aberta no navegador",
       "failed": "Pesquisa reversa falhou - verifique o curl e a rede"
     },
     "record": {
       "title": "Print Toolkit - Gravação",
+      "started": "Gravação iniciada (monitor focado)",
+      "stopped": "Gravação finalizada e salva",
       "failed": "Não foi possível alternar a gravação - o noctalia/screen_recorder está habilitado?"
     }
   }

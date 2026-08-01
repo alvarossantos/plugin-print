@@ -58,6 +58,11 @@ options       = [
 id    = "toolkit"
 entry = "widget.luau"
 
+# ── Bar widget: status de gravação (ícone vermelho quando gravando) ──────────
+[[widget]]
+id    = "record-status"
+entry = "scripts/record-widget.luau"
+
 # ── Painel com as ações ─────────────────────────────────────────────────────
 [[panel]]
 id    = "tools"

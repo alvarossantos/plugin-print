@@ -47,16 +47,28 @@
     }
   },
   "notification": {
+    "region": {
+      "title": "Print Toolkit - Region",
+      "saved": "Region saved and copied to clipboard"
+    },
+    "fullscreen": {
+      "title": "Print Toolkit - Fullscreen",
+      "saved": "Fullscreen saved and copied to clipboard"
+    },
     "ocr": {
       "title": "Print Toolkit - OCR",
-      "failed": "OCR failed - check the tesseract installation and the screenshot directory"
+      "copied": "Text copied to clipboard",
+      "failed": "OCR failed - check tesseract installation and screenshot directory"
     },
     "search": {
       "title": "Print Toolkit - Image Search",
+      "opened": "Reverse image search opened in browser",
       "failed": "Reverse image search failed - check curl and network"
     },
     "record": {
       "title": "Print Toolkit - Recording",
+      "started": "Recording started (focused monitor)",
+      "stopped": "Recording finished and saved",
       "failed": "Could not toggle recording - is noctalia/screen_recorder enabled?"
     }
   }
