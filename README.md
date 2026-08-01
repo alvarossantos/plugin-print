@@ -147,12 +147,13 @@ Clique no ícone **📸 (screenshot)** na barra do Noctalia → abre a mesma too
 ### ⚠️ Importante: Parar Gravação
 Para poder **parar a gravação** pela barra, você tem duas opções:
 
-1. **Widget do Print Toolkit (recomendado)**: O plugin adiciona um widget **record-status** que mostra um ícone vermelho ● quando gravando. Clique nele para parar.
-   - Se não aparecer, adicione em **Configurações → Barras → Widgets → Print Toolkit Record Status**.
+1. **Widget do Print Toolkit (recomendado)**: O plugin adiciona um widget **record-status** que mostra um ícone vermelho ● quando gravando, com o tempo decorrido no tooltip. Clique nele para parar.
+   - **Precisa adicionar na barra**: Configurações → Barras → Widgets → **Print Toolkit Record Status**.
+   - Mostra ícone vermelho ● quando gravando, tooltip com tempo (ex: "Gravando há 01:23").
 
 2. **Plugin oficial `screen_recorder`**: Mantenha o widget do plugin `noctalia/screen_recorder` na barra.
    - Em **Configurações → Barras → Widgets**, adicione **Screen Recorder**.
-   - Ele mostra o tempo de gravação e botão de parar.
+   - Mostra tempo de gravação e botão de parar.
 
 > **Dica:** O botão "Gravar" na toolbar **fecha a toolbar** ao iniciar. Para parar, use um dos widgets acima (o botão da toolbar não reaparece enquanto grava).
 
@@ -192,7 +193,8 @@ print-toolkit/
 │   ├── ocr.sh
 │   ├── ocr-region.sh
 │   ├── reverse-search.sh
-│   └── search-region.sh
+│   ├── search-region.sh
+│   └── record-widget.luau   # Widget status gravação (ícone + tempo)
 ├── translations/
 │   ├── en.json
 │   └── pt-BR.json
