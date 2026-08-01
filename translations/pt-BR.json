@@ -71,5 +71,16 @@
       "stopped": "Gravação finalizada e salva",
       "failed": "Não foi possível alternar a gravação - o noctalia/screen_recorder está habilitado?"
     }
+  },
+  "record": {
+    "recording": "Gravando",
+    "paused": "Pausado",
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "stop": "Parar",
+    "cancel": "Cancelar",
+    "hint": "Clique em Pausar/Parar/Cancelar para controlar a gravação",
+    "mic_on": "Mic: ON",
+    "vol_max": "Vol: 100%"
   }
 }

@@ -60,9 +60,6 @@ entry = "widget.luau"
 
 # ── Bar widget: status de gravação (ícone vermelho quando gravando) ──────────
 [[widget]]
-id    = "record-status"
-entry = "scripts/record-widget.luau"
-
 # ── Painel com as ações ─────────────────────────────────────────────────────
 [[panel]]
 id    = "tools"
@@ -83,4 +80,15 @@ width = 620
 height = 68
 placement = "floating"
 position  = "bottom_center"
+open_near_click = false
+
+# ── Painel de gravação (overlay estilo iNiR) ────────────────────────────────
+# Abre automaticamente ao iniciar gravação, mostra tempo + botões Pausar/Parar/Cancelar
+[[panel]]
+id    = "record"
+entry = "scripts/record-panel.luau"
+width = 340
+height = 260
+placement = "floating"
+position  = "center"
 open_near_click = false

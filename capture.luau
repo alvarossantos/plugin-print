@@ -227,6 +227,8 @@ function onToggleRecord()
   local source = noctalia.getConfig("record_source") or "focused"
   local was_recording = state.recording
   panel.close()
+  -- Abre painel de gravação (overlay estilo iNiR)
+  noctalia.runAsync("sleep 0.35 && noctalia msg panel-open alvaro/print-toolkit:record")
   noctalia.runAsync(
     string.format("sleep 0.35 && noctalia msg plugin noctalia/screen_recorder:service all toggle %s", shq(source)),
     function(result)
@@ -234,10 +236,12 @@ function onToggleRecord()
       if tonumber(result.exitCode) ~= 0 then
         noctalia.notifyError(tr("notification.record.title"), tr("notification.record.failed"))
       else
-        -- Notificação baseada no estado anterior
         if was_recording then
+          -- Gravação parou - fecha painel de gravação
+          noctalia.runAsync("sleep 0.2 && noctalia msg panel-close alvaro/print-toolkit:record")
           noctalia.notify(tr("notification.record.title"), tr("notification.record.stopped"))
         else
+          -- Gravação iniciou
           noctalia.notify(tr("notification.record.title"), tr("notification.record.started"))
         end
       end

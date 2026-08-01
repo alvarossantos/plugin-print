@@ -71,5 +71,16 @@
       "stopped": "Recording finished and saved",
       "failed": "Could not toggle recording - is noctalia/screen_recorder enabled?"
     }
+  },
+  "record": {
+    "recording": "Recording",
+    "paused": "Paused",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "cancel": "Cancel",
+    "hint": "Click Pause/Stop/Cancel to control recording",
+    "mic_on": "Mic: ON",
+    "vol_max": "Vol: 100%"
   }
 }
