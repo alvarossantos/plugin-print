@@ -108,7 +108,10 @@ SCREENSHOT_DIR="$HOME/Pictures" OCR_LANG="por+eng" ./scripts/ocr.sh
 SCREENSHOT_DIR="$HOME/Pictures" SEARCH_ENGINE="google" ./scripts/reverse-search.sh
 ```
 
-## Instalação / Reinstalação
+## Instalação
+
+### Método 1: Instalação Local (atual)
+O plugin está disponível como fonte local. Para instalar:
 
 ```bash
 DEST="$HOME/.local/share/noctalia/plugins/print-toolkit"
@@ -117,9 +120,53 @@ cp -r plugin.toml widget.luau capture.luau panel.luau scripts translations "$DES
 chmod +x "$DEST"/scripts/*.sh
 noctalia msg plugins disable alvaro/print-toolkit
 noctalia msg plugins enable alvaro/print-toolkit
-# ou
+# ou simplesmente
 noctalia msg config-reload
 ```
+
+### Método 2: Via Noctalia (futuro)
+Quando publicado no repositório comunitário do Noctalia, será instalável diretamente pela interface:
+1. Abra **Configurações do Noctalia** → **Plugins** → **Comunidade**
+2. Busque por **"Print Toolkit"** (autor: `alvaro`)
+3. Clique em **Instalar** → **Habilitar**
+
+## Como Usar
+
+Após instalar e habilitar o plugin, existem **duas formas** de acessar a toolbar de captura:
+
+### 1. Tecla `Print` (recomendado)
+Pressione a tecla **Print** no teclado → abre a toolbar na base da tela.
+
+> Requer o keybinding configurado no Niri (veja seção Keybindings abaixo).
+
+### 2. Widget na Barra (ícone)
+Clique no ícone **📸 (screenshot)** na barra do Noctalia → abre a mesma toolbar.
+
+> O widget é adicionado automaticamente ao habilitar o plugin. Se não aparecer, adicione manualmente em **Configurações → Barras → Widgets → Print Toolkit**.
+
+---
+
+## Keybindings (Niri)
+
+A migração completa iNiR → Noctalia para `~/.config/niri/config.d/70-binds.kdl`:
+
+```kdl
+# Print → Toolbar captura
+Print      { spawn "noctalia" "msg" "panel-toggle" "alvaro/print-toolkit:capture"; }
+Ctrl+Print { screenshot-screen; }
+Alt+Print  { screenshot-window; }
+
+# Região/OCR/Pesquisa
+Mod+Shift+S { spawn "noctalia" "msg" "screenshot-region"; }
+Mod+Shift+X { spawn "noctalia" "msg" "plugin" "alvaro/print-toolkit:capture" "all" "ocr"; }
+Mod+Shift+A { spawn "noctalia" "msg" "plugin" "alvaro/print-toolkit:capture" "all" "reverse-search"; }
+Ctrl+Shift+S { spawn "noctalia" "msg" "panel-toggle" "alvaro/print-toolkit:capture"; }
+
+# Gravação
+Mod+Shift+R { spawn "noctalia" "msg" "plugin" "noctalia/screen_recorder:service" "all" "toggle" "focused"; }
+```
+
+> **Nota:** O bind da tecla `Print` é essencial para usar o método 1. Adicione ao seu `70-binds.kdl` ou `90-user-extra.kdl`.
 
 ## Estrutura do Repositório
 
