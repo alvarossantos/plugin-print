@@ -58,37 +58,77 @@ options       = [
 id    = "toolkit"
 entry = "widget.luau"
 
-# ── Bar widget: status de gravação (ícone vermelho quando gravando) ──────────
-[[widget]]
 # ── Painel com as ações ─────────────────────────────────────────────────────
 [[panel]]
 id    = "tools"
 entry = "panel.luau"
-width = 420
-height = 420
+width = 320
+height = 180
 placement = "floating"
 position  = "auto"
 open_near_click = true
 
-# ── Toolbar de captura (tecla Print), estilo iNiR ──────────────────────────
-# Barra horizontal compacta na base da tela. Aberta via:
-#   noctalia msg panel-toggle alvaro/print-toolkit:capture
+# ── Toolbar de captura (tecla Print) ───────────────────────────────────────
 [[panel]]
 id    = "capture"
 entry = "capture.luau"
-width = 620
-height = 68
+width = 540
+height = 56
 placement = "floating"
 position  = "bottom_center"
 open_near_click = false
 
-# ── Painel de gravação (overlay estilo iNiR) ────────────────────────────────
-# Abre automaticamente ao iniciar gravação, mostra tempo + botões Pausar/Parar/Cancelar
+# ── Painel de gravação — 6 posições (setas trocam entre elas) ───────────────
 [[panel]]
-id    = "record"
+id    = "record-top-left"
 entry = "scripts/record-panel.luau"
-width = 340
-height = 260
+width = 560
+height = 60
 placement = "floating"
-position  = "center"
+position  = "top_left"
+open_near_click = false
+
+[[panel]]
+id    = "record-top-center"
+entry = "scripts/record-panel.luau"
+width = 560
+height = 60
+placement = "floating"
+position  = "top_center"
+open_near_click = false
+
+[[panel]]
+id    = "record-top-right"
+entry = "scripts/record-panel.luau"
+width = 560
+height = 60
+placement = "floating"
+position  = "top_right"
+open_near_click = false
+
+[[panel]]
+id    = "record-bottom-left"
+entry = "scripts/record-panel.luau"
+width = 560
+height = 60
+placement = "floating"
+position  = "bottom_left"
+open_near_click = false
+
+[[panel]]
+id    = "record-bottom-center"
+entry = "scripts/record-panel.luau"
+width = 560
+height = 60
+placement = "floating"
+position  = "bottom_center"
+open_near_click = false
+
+[[panel]]
+id    = "record-bottom-right"
+entry = "scripts/record-panel.luau"
+width = 560
+height = 60
+placement = "floating"
+position  = "bottom_right"
 open_near_click = false

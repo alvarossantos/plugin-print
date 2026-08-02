@@ -25,7 +25,7 @@ local function shq(v)
 end
 
 local function render()
-  panel.render(ui.column({ gap = 12, padding = 16 }, {
+  panel.render(ui.column({ gap = 12, padding = 16, justify = "center" }, {
     -- Cabeçalho
     ui.row({ align = "center", gap = 8 }, {
       ui.label({ text = tr("panel.title"), fontSize = 16, fontWeight = "bold", color = "primary", flexGrow = 1 }),

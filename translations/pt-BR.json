@@ -48,28 +48,28 @@
   },
   "notification": {
     "region": {
-      "title": "Print Toolkit - Região",
+      "title": "Captura de Região",
       "saved": "Região salva e copiada para a área de transferência"
     },
     "fullscreen": {
-      "title": "Print Toolkit - Tela Cheia",
+      "title": "Captura de Tela Cheia",
       "saved": "Tela cheia salva e copiada para a área de transferência"
     },
     "ocr": {
-      "title": "Print Toolkit - OCR",
-      "copied": "Texto copiado para a área de transferência",
-      "failed": "OCR falhou - verifique a instalação do tesseract e o diretório de capturas"
+      "title": "OCR Concluído",
+      "copied": "Texto extraído e copiado para a área de transferência",
+      "failed": "Falha no OCR - verifique tesseract e diretório de capturas"
     },
     "search": {
-      "title": "Print Toolkit - Pesquisa de Imagem",
+      "title": "Pesquisa por Imagem",
       "opened": "Pesquisa reversa aberta no navegador",
-      "failed": "Pesquisa reversa falhou - verifique o curl e a rede"
+      "failed": "Falha na pesquisa - verifique conexão e curl"
     },
     "record": {
-      "title": "Print Toolkit - Gravação",
-      "started": "Gravação iniciada (monitor focado)",
-      "stopped": "Gravação finalizada e salva",
-      "failed": "Não foi possível alternar a gravação - o noctalia/screen_recorder está habilitado?"
+      "title": "Gravação de Tela",
+      "started": "Gravação iniciada no monitor focado",
+      "stopped": "Gravação finalizada e salva em ~/Videos/Recordings",
+      "failed": "Não foi possível iniciar/parar - plugin screen_recorder habilitado?"
     }
   },
   "record": {
@@ -79,8 +79,9 @@
     "resume": "Retomar",
     "stop": "Parar",
     "cancel": "Cancelar",
-    "hint": "Clique em Pausar/Parar/Cancelar para controlar a gravação",
+    "hint": "Use os botões para controlar a gravação",
     "mic_on": "Mic: ON",
-    "vol_max": "Vol: 100%"
+    "vol_max": "Vol: 100%",
+    "cancelled_notice": "Gravação cancelada e arquivo descartado"
   }
 }

@@ -48,28 +48,28 @@
   },
   "notification": {
     "region": {
-      "title": "Print Toolkit - Region",
+      "title": "Region Capture",
       "saved": "Region saved and copied to clipboard"
     },
     "fullscreen": {
-      "title": "Print Toolkit - Fullscreen",
+      "title": "Fullscreen Capture",
       "saved": "Fullscreen saved and copied to clipboard"
     },
     "ocr": {
-      "title": "Print Toolkit - OCR",
-      "copied": "Text copied to clipboard",
+      "title": "OCR Completed",
+      "copied": "Text extracted and copied to clipboard",
       "failed": "OCR failed - check tesseract installation and screenshot directory"
     },
     "search": {
-      "title": "Print Toolkit - Image Search",
+      "title": "Image Search",
       "opened": "Reverse image search opened in browser",
-      "failed": "Reverse image search failed - check curl and network"
+      "failed": "Search failed - check connection and curl"
     },
     "record": {
-      "title": "Print Toolkit - Recording",
-      "started": "Recording started (focused monitor)",
-      "stopped": "Recording finished and saved",
-      "failed": "Could not toggle recording - is noctalia/screen_recorder enabled?"
+      "title": "Screen Recording",
+      "started": "Recording started on focused monitor",
+      "stopped": "Recording finished and saved to ~/Videos/Recordings",
+      "failed": "Could not start/stop recording - is screen_recorder plugin enabled?"
     }
   },
   "record": {
@@ -79,8 +79,9 @@
     "resume": "Resume",
     "stop": "Stop",
     "cancel": "Cancel",
-    "hint": "Click Pause/Stop/Cancel to control recording",
+    "hint": "Use buttons to control recording",
     "mic_on": "Mic: ON",
-    "vol_max": "Vol: 100%"
+    "vol_max": "Vol: 100%",
+    "cancelled_notice": "Recording cancelled and file discarded"
   }
 }
