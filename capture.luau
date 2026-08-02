@@ -104,6 +104,12 @@ end
 
 -- ── Ciclo de vida ─────────────────────────────────────────────────────────
 function onOpen(_context)
+  -- Sempre detectar estado real ao abrir
+  state.recording = false
+  noctalia.processMatches(function(matched)
+    state.recording = matched
+    render()
+  end, "gpu-screen-recorder", " -w ")
   render()
 end
 
